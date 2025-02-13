@@ -1,0 +1,22 @@
+.cabecalho {
+  background-color: black;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cabecalho .logo {
+  width: 5%;
+  padding: 1rem 2rem;
+}
+
+.cabecalho p {
+  font-size: 2rem;
+  color: white;
+}
+
+.cabecalho .bemVindo {
+  color: white;
+  padding: 1rem 2rem;
+}
