@@ -1,25 +1,26 @@
-footer {
-  background-color: black;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    "TextoCopyright LogoRodape .";
-  align-items: center;
-  padding: 1rem 2rem;
+html,
+body {
+  height: 100%;
+  margin: 0;
 }
 
-.LogoRodape {
-  justify-self: center;
-  grid-area: LogoRodape;
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-footer small {
+.conteudo-principal {
+  flex: 1;
+  padding-bottom: 60px;
+}
+
+.footer-fixo {
+  background-color: #333;
   color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
-
-footer .LogoRodape {
-  color: white;
-}
-

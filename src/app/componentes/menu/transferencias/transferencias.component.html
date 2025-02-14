@@ -1,10 +1,106 @@
-<section class="container">
-  <header class="header d-flex">
-    <h2 class="ff-inter">Transferência</h2>
-  </header>
-</section>
-<ng-template #semTransferencia>
-  <div class="ff-inter sem-transferencia">
-    <p>Ainda não há transferências cadastradas!</p>
+<div class="transferencias-container">
+  <h2 class="titulo-principal">TRANSFERÊNCIAS</h2>
+  <div class="grid-container">
+    <div class="lado-esquerdo">
+      <div class="inputs-container">
+        <h3 class="titulo-centralizado">Nova Transferência</h3>
+        <div class="input-row">
+          <div class="input-group">
+            <label for="contaOrigem">Conta Origem:</label>
+            <input
+              id="contaOrigem"
+              type="text"
+              [(ngModel)]="novaTransferencia.contaOrigem"
+            />
+          </div>
+          <div class="input-group">
+            <label for="contaDestino">Conta Destino:</label>
+            <input
+              id="contaDestino"
+              type="text"
+              [(ngModel)]="novaTransferencia.contaDestino"
+            />
+          </div>
+          <div class="input-group">
+            <label for="valor">Valor:</label>
+            <input
+              id="valor"
+              type="number"
+              min="1"
+              [(ngModel)]="novaTransferencia.valor"
+            />
+          </div>
+          <div class="input-group">
+            <label for="dataTransferencia">Data da Transferência:</label>
+            <input
+              id="dataTransferencia"
+              type="datetime-local"
+              [(ngModel)]="novaTransferencia.dataTransferencia"
+            />
+          </div>
+        </div>
+        <button (click)="confirmarTransferencia()">Confirmar</button>
+      </div>
+      <div class="lista-transferencias">
+        <h3 class="titulo-centralizado">Extrato de Transferências</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Conta Origem</th>
+              <th>Conta Destino</th>
+              <th>Valor Total</th>
+              <th>Valor da Taxa</th>
+              <th>Taxa</th>
+              <th>Data Agendamento</th>
+              <th>Data da Transferência</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let trans of transferencias">
+              <td>{{ trans.contaOrigem }}</td>
+              <td>{{ trans.contaDestino }}</td>
+              <td>R${{ trans.valor }}</td>
+              <td>{{ trans.valorTaxa }}</td>
+              <td>{{ trans.taxa }}</td>
+              <td>{{ trans.dtAgendamento }}</td>
+              <td>{{ trans.dtTransferencia }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="lado-direito">
+      <div class="quadrado">
+        <h3 class="titulo-centralizado">Valor Total de Transferências</h3>
+        <p>R${{ valorTotalTransferencias }}</p>
+      </div>
+      <div class="quadrado">
+        <h3 class="titulo-centralizado">Última Transferência Agendada</h3>
+        <p>
+          <strong>Conta Origem:</strong> {{ ultimaTransferencia.contaOrigem }}
+        </p>
+        <p>
+          <strong>Conta Destino:</strong> {{ ultimaTransferencia.contaDestino }}
+        </p>
+        <p><strong>Valor Total:</strong> R${{ ultimaTransferencia.valor }}</p>
+        <p>
+          <strong>Valor da Taxa:</strong> {{ ultimaTransferencia.valorTaxa }}
+        </p>
+        <p><strong>Taxa:</strong> {{ ultimaTransferencia.taxa }}</p>
+        <p>
+          <strong>Data Agendamento:</strong>
+          {{ ultimaTransferencia.dtAgendamento }}
+        </p>
+        <p>
+          <strong>Data da Transferência:</strong>
+          {{ ultimaTransferencia.dtTransferencia }}
+        </p>
+      </div>
+      <div class="quadrado">
+        <h3 class="titulo-centralizado">Limites Diários</h3>
+        <p>Sem Limites</p>
+      </div>
+    </div>
   </div>
-</ng-template>
+</div>

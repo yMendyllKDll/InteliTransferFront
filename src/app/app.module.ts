@@ -14,15 +14,10 @@ import { TransferenciasComponent } from './componentes/menu/transferencias/trans
     AppComponent,
     CabecalhoComponent,
     RodapeComponent,
-    TransferenciasComponent
+    TransferenciasComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
